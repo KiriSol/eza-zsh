@@ -1,5 +1,5 @@
 # Проверяем наличие eza
-if ! (($ + commands[eza])); then
+if ! (( $+commands[eza] )); then
     print "zsh-eza-plugin: eza not found on path. Please install eza before using this plugin." >&2
     return 1
 fi
