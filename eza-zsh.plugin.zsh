@@ -36,7 +36,7 @@ alias lla='ls -lbhHigUmuSa'
 alias llx='ls -lbhHigUmuSa@'
 
 # ls with sorting
-alias lgit='ls --git-ignore'      # Без файлов и директорий, обозначенных в .gitignore
+alias lgit='ls -a --git-ignore'      # Без файлов и директорий, обозначенных в .gitignore
 alias lmod='ll --sort=modified'   # Сортировка по дате модификации
 alias lcreate='ll --sort=created' # Сортировка по дате создания
 alias lsize='ll --sort=size'      # Сортировка по размеру
@@ -47,7 +47,7 @@ alias labs='ls --absolute=on' # Абсолютный путь
 alias lpwd='labs -d .'        # Красивая замена pwd
 
 # Добавленные
-alias lT='ls --tree --no-user --all' # Дерево файлов со скратыми элементами
+alias lT='ls --tree --no-user --all --ignore-glob=.git' # Дерево файлов со скратыми элементами
 alias lS='ls --oneline'              # В один столбик
 alias lX='ls --across'               # Вывод не по столбам, а по строкам
 alias lR='ls --recurse'              # рекурсия по вложенным директориям
