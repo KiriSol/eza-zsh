@@ -1,16 +1,14 @@
 # Проверяем наличие eza
 if ! (( $+commands[eza] )); then
-    print "zsh-eza-plugin: eza not found on path. Please install eza before using this plugin." >&2
-    return 1
+  print "zsh-eza-plugin: eza not found on path. Please install eza before using this plugin." >&2
+  return 1
 fi
 
-export EZA_ALIASES="$ZSH_CUSTOM/plugins/eza-zsh/eza-zsh.plugin.zsh"
-
-# Старый ls просто по приколу
-alias lss="$(dirname $(command -v cat))/ls --color=auto" # Не на всех платформах это /usr/bin/ls
+export EZA_ALIASES="${0:a}"
 
 # Изменение стандартных настроек
-eza_params=(
+if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
+  export EZA_DEFAULT_OPTS=(
     '--git'                     # Информация о git status
     '--hyperlink'               # Гиперссылки на открытие программой по умолчанию
     '--color=always'            # Все цвета
@@ -20,16 +18,16 @@ eza_params=(
     '--time-style=long-iso'     # Стиль времени
     '--header'                  # Названия столбцов информации
     '--classify=always'         # Подсказки по типу элемента
-)
+  )
+fi
 
 # Стандартные aliases
-alias ls='eza $eza_params' # Переопредиление ls
+alias ls="eza $EZA_DEFAULT_OPTS" # Переопредиление ls
 alias tree='ls --tree'     # Переопредиление tree
 
 alias la='ls --sort=Name --all' # Cо скрытыми элементами
 alias l='ls --header --long'    # Больще информации о файлах
 alias ll='l --all'
-alias lsa='ll' # Со скрытыми элементами
 
 # Полная информация о файлах
 alias lla='ls -lbhHigUmuSa'
@@ -40,8 +38,8 @@ alias lgit='ls -a --git-ignore'      # Без файлов и директори
 alias lmod='ll --sort=modified'   # Сортировка по дате модификации
 alias lcreate='ll --sort=created' # Сортировка по дате создания
 alias lsize='ll --sort=size'      # Сортировка по размеру
-alias ldir='ls --only-dirs'       # Только директории
-alias lfile='ls --only-files'     # Только файлы
+alias ldirs='ls --only-dirs'       # Только директории
+alias lfiles='ls --only-files'     # Только файлы
 
 alias labs='ls --absolute=on' # Абсолютный путь
 alias lpwd='labs -d .'        # Красивая замена pwd
@@ -54,13 +52,13 @@ alias lR='ls --recurse'              # рекурсия по вложенным 
 
 # Дерево по указанному уровню
 function lt() {
-    if [ $ARGC -eq 0 ]; then # Проверяем наличие первого аргумента
-        1="1"
-    fi
-    if [ $ARGC -eq 1 ]; then # Аналогично с вторым
-        2="."
-    fi
-    tree --level="$1" "${@:2}"
+  if [ $ARGC -eq 0 ]; then
+    1="1"
+  fi
+  if [ $ARGC -eq 1 ]; then
+    2="."
+  fi
+  tree --level="$1" "${@:2}"
 }
 
 # Tree with level
