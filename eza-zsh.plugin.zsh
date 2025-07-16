@@ -9,15 +9,17 @@ export EZA_ALIASES="${0:a}"
 # Изменение стандартных настроек
 if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
   export EZA_DEFAULT_OPTS=(
-    '--git'                     # Информация о git status
-    '--hyperlink'               # Гиперссылки на открытие программой по умолчанию
-    '--color=always'            # Все цвета
-    '--icons=always'            # Все иконки
-    '--group-directories-first' # Сначала директории
-    '--sort=type'               # Сортировка по типу
-    '--time-style=long-iso'     # Стиль времени
-    '--header'                  # Названия столбцов информации
-    '--classify=always'         # Подсказки по типу элемента
+    '--git'                        # Информация о git status
+    '--hyperlink'                  # Гиперссылки на открытие программой по умолчанию
+    '--color=always'               # Все цвета
+    '--icons=always'               # Все иконки
+    '--group-directories-first'    # Сначала директории
+    '--sort=type'                  # Сортировка по типу
+    '--time-style=long-iso'        # Стиль времени
+    '--header'                     # Названия столбцов информации
+    '--classify=always'            # Подсказки по типу элемента
+    '--colour-scale-mode=gradient' # 
+    '--color-scale=all'            # 
   )
 fi
 
