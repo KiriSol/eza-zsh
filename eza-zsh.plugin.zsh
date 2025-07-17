@@ -1,58 +1,45 @@
-# Проверяем наличие eza
+# Check the presence of eza in PATH
 if ! (( $+commands[eza] )); then
   print "zsh-eza-plugin: eza not found on path. Please install eza before using this plugin." >&2
   return 1
 fi
 
-export EZA_ALIASES="${0:a}"
-
-# Изменение стандартных настроек
+# Changing standard settings
 if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
   export EZA_DEFAULT_OPTS=(
-    '--git'                        # Информация о git status
-    '--hyperlink'                  # Гиперссылки на открытие программой по умолчанию
-    '--color=always'               # Все цвета
-    '--icons=always'               # Все иконки
-    '--group-directories-first'    # Сначала директории
-    '--sort=type'                  # Сортировка по типу
-    '--time-style=long-iso'        # Стиль времени
-    '--header'                     # Названия столбцов информации
-    '--classify=always'            # Подсказки по типу элемента
-    '--colour-scale-mode=gradient' # 
-    '--color-scale=all'            # 
+    '--git'
+    '--header'
+    '--group-directories-first'
+    '--sort=type'
+    '--time-style=long-iso'
   )
 fi
 
-# Стандартные aliases
-alias ls="eza $EZA_DEFAULT_OPTS" # Переопредиление ls
-alias tree='ls --tree'     # Переопредиление tree
+if ! [[ -n "${EZA_IGNORE_GLOB+x}" ]]; then
+  export EZA_IGNORE_GLOB=".git|.venv|venv|node_modules|__pycache__|.idea|.buildozer|.ruff_cache"
+fi
 
-alias la='ls --sort=Name --all' # Cо скрытыми элементами
-alias l='ls --header --long'    # Больще информации о файлах
+# Standard aliases
+alias ls="eza $EZA_DEFAULT_OPTS"
+alias tree='ls --tree'
+
+alias la='ls --sort=Name --all'
+alias l='ls --header --long'
 alias ll='l --all'
 
-# Полная информация о файлах
+# Full information about files
 alias lla='ls -lbhHigUmuSa'
 alias llx='ls -lbhHigUmuSa@'
 
 # ls with sorting
-alias lgit='ls -a --git-ignore'      # Без файлов и директорий, обозначенных в .gitignore
-alias lmod='ll --sort=modified'   # Сортировка по дате модификации
-alias lcreate='ll --sort=created' # Сортировка по дате создания
-alias lsize='ll --sort=size'      # Сортировка по размеру
-alias ldirs='ls --only-dirs'       # Только директории
-alias lfiles='ls --only-files'     # Только файлы
+alias lgit='ls -a --git-ignore'
+alias lmod='ll --sort=modified'
+alias lcreate='ll --sort=created'
+alias lsize='ll --sort=size'
+alias ldirs='ls --only-dirs'
+alias lfiles='ls --only-files'
 
-alias labs='ls --absolute=on' # Абсолютный путь
-alias lpwd='labs -d .'        # Красивая замена pwd
-
-# Добавленные
-alias lT='ls --tree --no-user --all --ignore-glob=.git' # Дерево файлов со скратыми элементами
-alias lS='ls --oneline'              # В один столбик
-alias lX='ls --across'               # Вывод не по столбам, а по строкам
-alias lR='ls --recurse'              # рекурсия по вложенным директориям
-
-# Дерево по указанному уровню
+# Tree with level (first argument)
 function lt() {
   if [ $ARGC -eq 0 ]; then
     1="1"
@@ -63,7 +50,7 @@ function lt() {
   tree --level="$1" "${@:2}"
 }
 
-# Tree with level
+# Aliases for tree
 alias lt1='tree --level=1'
 alias lt2='tree --level=2'
 alias lt3='tree --level=3'
@@ -71,5 +58,14 @@ alias lt3='tree --level=3'
 alias ls1='lt1'
 alias ls2='lt2'
 alias ls3='lt3'
+
+# Others
+alias lT="ls --tree --no-user --all --ignore-glob='$EZA_IGNORE_GLOB'"
+alias lS='ls --oneline'
+alias lX='ls --across'
+alias lR='ls --recurse'
+
+alias labs='ls --absolute=on'
+alias lpwd='labs -d .'
 
 return 0
