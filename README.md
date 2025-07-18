@@ -17,13 +17,28 @@ git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
 `plugins=(... eza-zsh ...)`
 
-# Features
+## Features
 
-- ## The plugin introduces some variables
-  - **EZA_DEFAULT_OPTS** defines the options that apply to **all aliases**.
-  - **EZA_IGNORE_GLOB** pattern for `--ignore-glob` option, which is used for alias `lT`
+- ### The plugin introduces some variables
+  - **EZA_DEFAULT_OPTS** defines the options that apply to **all aliases**. By default it is
 
-- ## Table of aliases
+  ```sh
+  export EZA_DEFAULT_OPTS=(
+    '--git'
+    '--header'
+    '--group-directories-first'
+    '--sort=type'
+    '--time-style=long-iso'
+  )
+  ```
+
+  - **EZA_IGNORE_GLOB** pattern for `--ignore-glob` option, which is used for alias `lT`. By default it is
+
+  ```sh
+  export EZA_IGNORE_GLOB=".git|.venv|venv|node_modules|__pycache__|.idea|.buildozer|.ruff_cache"
+  ```
+
+- ### Table of aliases
 
 | Alias     | Command                                                      |
 | --------- | ------------------------------------------------------------ |
@@ -50,7 +65,7 @@ git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 | `ls2`     | `tree --level=2`                                             |
 | `ls3`     | `tree --level=3`                                             |
 
-- ## Functions
+- ### Functions
   - `lt`. This is a `tree` with level accepted by the first argument
     ```sh
     function lt() {
@@ -63,3 +78,7 @@ git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
       tree --level="$1" "${@:2}"
     }
     ```
+
+## Configuration
+
+- You can change `EZA_DEFAULT_OPTS` and `EZA_IGNORE_GLOB` before load this plugin
