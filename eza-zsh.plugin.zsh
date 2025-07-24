@@ -26,6 +26,7 @@ alias tree='ls --tree'
 alias la='ls --sort=Name --all'
 alias l='ls --header --long'
 alias ll='l --all'
+alias li='l -i'
 
 # Full information about files
 alias lla='ls -lbhHigUmuSa'
