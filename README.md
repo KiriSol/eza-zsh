@@ -10,7 +10,7 @@ This is a useful [eza](https://github.com/eza-community/eza) aliases for
 2. Clone this plugin to your plugins folder
 
 ```sh
-git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/eza-zsh
+git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 ```
 
 3. Add the plugin to list in `~/.zshrc`:
@@ -35,7 +35,7 @@ git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
   - **EZA_IGNORE_GLOB** pattern for `--ignore-glob` option, which is used for alias `lT`. By default it is
 
   ```sh
-  export EZA_IGNORE_GLOB=".git|.venv|venv|node_modules|__pycache__|.idea|.buildozer|.ruff_cache"
+  export EZA_IGNORE_GLOB=".git"
   ```
 
 - ### Table of aliases
@@ -47,9 +47,10 @@ git clone https://github.com/KiriSol/eza-zsh  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 | `la`      | `ls --sort=Name --all`                                       |
 | `l`       | `ls --header --long`                                         |
 | `ll`      | `l --all`                                                    |
+| `li`      | `l --inode`                                                  |
 | `lla`     | `ls -lbhHigUmuSa`                                            |
 | `llx`     | `ls -lbhHigUmuSa@`                                           |
-| `lgit`    | `ls -a --git-ignore`                                         |
+| `lgit`    | `ls --all --git-ignore`                                      |
 | `lmod`    | `ll --sort=modified`                                         |
 | `lcreate` | `ll --sort=created`                                          |
 | `lsize`   | `ll --sort=size`                                             |

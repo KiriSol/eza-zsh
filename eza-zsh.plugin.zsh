@@ -16,7 +16,7 @@ if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
 fi
 
 if ! [[ -n "${EZA_IGNORE_GLOB+x}" ]]; then
-  export EZA_IGNORE_GLOB=".git|.venv|venv|node_modules|__pycache__|.idea|.buildozer|.ruff_cache"
+  export EZA_IGNORE_GLOB=".git"
 fi
 
 # Standard aliases
@@ -26,14 +26,14 @@ alias tree='ls --tree'
 alias la='ls --sort=Name --all'
 alias l='ls --header --long'
 alias ll='l --all'
-alias li='l -i'
+alias li='l --inode'
 
 # Full information about files
 alias lla='ls -lbhHigUmuSa'
 alias llx='ls -lbhHigUmuSa@'
 
 # ls with sorting
-alias lgit='ls -a --git-ignore'
+alias lgit='ls --all --git-ignore'
 alias lmod='ll --sort=modified'
 alias lcreate='ll --sort=created'
 alias lsize='ll --sort=size'
