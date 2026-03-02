@@ -22,7 +22,7 @@ git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 - ### The plugin introduces some variables
   - **EZA_DEFAULT_OPTS** defines the options that apply to **all aliases**. By default it is
 
-  ```sh
+  ```bash
   export EZA_DEFAULT_OPTS=(
     '--git'
     '--header'
@@ -42,7 +42,7 @@ git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 
 | Alias     | Command                                                      |
 | --------- | ------------------------------------------------------------ |
-| `ls`      | `eza $EZA_DEFAULT_OPTS`                                      |
+| `ls`      | `eza ${=EZA_DEFAULT_OPTS}`                                   |
 | `tree`    | `ls --tree`                                                  |
 | `la`      | `ls --sort=Name --all`                                       |
 | `l`       | `ls --header --long`                                         |
