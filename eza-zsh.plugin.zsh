@@ -20,7 +20,7 @@ if ! [[ -n "${EZA_IGNORE_GLOB+x}" ]]; then
 fi
 
 # Standard aliases
-alias ls="eza ${=EZA_DEFAULT_OPTS}"
+alias ls="eza $EZA_DEFAULT_OPTS"
 alias tree='ls --tree'
 
 alias la='ls --sort=Name --all'

@@ -42,7 +42,7 @@ git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 
 | Alias     | Command                                                      |
 | --------- | ------------------------------------------------------------ |
-| `ls`      | `eza ${=EZA_DEFAULT_OPTS}`                                   |
+| `ls`      | `eza $EZA_DEFAULT_OPTS`                                      |
 | `tree`    | `ls --tree`                                                  |
 | `la`      | `ls --sort=Name --all`                                       |
 | `l`       | `ls --header --long`                                         |
