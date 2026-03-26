@@ -4,7 +4,7 @@ if ! (( $+commands[eza] )); then
   return 1
 fi
 
-# Changing standard settings
+# Change standard settings
 if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
   export EZA_DEFAULT_OPTS=(
     '--git'
@@ -41,14 +41,8 @@ alias ldirs='ls --only-dirs'
 alias lfiles='ls --only-files'
 
 # Tree with level (first argument)
-function lt() {
-  if [ $ARGC -eq 0 ]; then
-    1="1"
-  fi
-  if [ $ARGC -eq 1 ]; then
-    2="."
-  fi
-  tree --level="$1" "${@:2}"
+lt() {
+  tree --level "${1:-1}" "${@:2}"
 }
 
 # Aliases for tree

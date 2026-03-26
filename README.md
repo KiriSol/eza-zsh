@@ -68,17 +68,12 @@ git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 
 - ### Functions
   - `lt`. This is a `tree` with level accepted by the first argument
-    ```sh
-    function lt() {
-      if [ $ARGC -eq 0 ]; then
-        1="1"
-      fi
-      if [ $ARGC -eq 1 ]; then
-        2="."
-      fi
-      tree --level="$1" "${@:2}"
-    }
-    ```
+
+  ```sh
+  lt() {
+    tree --level "${1:-1}" "${@:2}"
+  }
+  ```
 
 ## Configuration
 
