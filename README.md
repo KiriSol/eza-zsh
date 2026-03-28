@@ -1,5 +1,8 @@
 # eza-zsh plugin
 
+> [!WARNING]
+> This plugin is **no longer maintained**.
+
 This is a useful [eza](https://github.com/eza-community/eza) aliases for
 [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
