@@ -1,6 +1,6 @@
 # Check the presence of eza in PATH
 if ! (( $+commands[eza] )); then
-  print "eza-zsh-plugin: eza not found on path. Please install eza before using this plugin." >&2
+  print "eza-zsh: eza not found in path. Please install eza before using this plugin." >&2
   return 1
 fi
 
@@ -51,7 +51,7 @@ alias ls2='tree --level=2'
 alias ls3='tree --level=3'
 
 # Others
-alias lT="ls --tree --no-user --all --ignore-glob='$EZA_IGNORE_GLOB'"
+alias lT="ls --tree --no-user --no-permissions --all --ignore-glob='$EZA_IGNORE_GLOB'"
 alias lS='ls --oneline'
 alias lX='ls --across'
 alias lR='ls --recurse'

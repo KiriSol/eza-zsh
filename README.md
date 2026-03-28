@@ -10,7 +10,7 @@ This is a useful [eza](https://github.com/eza-community/eza) aliases for
 2. Clone this plugin to your plugins folder
 
 ```sh
-git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
+git clone https://github.com/KiriSol/eza-zsh ${ZSH_CUSTOM:-$ZSH/custom}/plugins/eza-zsh
 ```
 
 3. Add the plugin to list in `~/.zshrc`:
@@ -77,4 +77,4 @@ git clone https://github.com/KiriSol/eza-zsh $ZSH_CUSTOM/plugins/eza-zsh
 
 ## Configuration
 
-- You can change `EZA_DEFAULT_OPTS` and `EZA_IGNORE_GLOB` before load this plugin
+- You can change `EZA_DEFAULT_OPTS` and `EZA_IGNORE_GLOB` before loading this plugin
