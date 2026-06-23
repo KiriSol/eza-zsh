@@ -1,8 +1,5 @@
 # eza-zsh plugin
 
-> [!WARNING]
-> This plugin is **no longer maintained**.
-
 This is a useful [eza](https://github.com/eza-community/eza) aliases for
 [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 
@@ -33,43 +30,6 @@ git clone https://github.com/KiriSol/eza-zsh ${ZSH_CUSTOM:-$ZSH/custom}/plugins/
     '--sort=type'
     '--time-style=long-iso'
   )
-  ```
-
-- ### Table of aliases
-
-| Alias     | Command                                  |
-| --------- | ---------------------------------------- |
-| `ls`      | `eza $EZA_DEFAULT_OPTS`                  |
-| `tree`    | `ls --tree`                              |
-| `la`      | `ls --sort=Name --all`                   |
-| `l`       | `ls --header --long`                     |
-| `ll`      | `l --all`                                |
-| `li`      | `l --inode`                              |
-| `lla`     | `ls -lbhHigUmuSa`                        |
-| `llx`     | `ls -lbhHigUmuSa@`                       |
-| `lgit`    | `ls --all --git-ignore`                  |
-| `lmod`    | `ll --sort=modified`                     |
-| `lcreate` | `ll --sort=created`                      |
-| `lsize`   | `ll --sort=size`                         |
-| `ldirs`   | `ls --only-dirs`                         |
-| `lfiles`  | `ls --only-files`                        |
-| `lT`      | `ls --tree --no-user --all --git-ignore` |
-| `lS`      | `ls --oneline`                           |
-| `lX`      | `ls --across`                            |
-| `lR`      | `ls --recurse`                           |
-| `labs`    | `ls --absolute=on`                       |
-| `lpwd`    | `labs -d .`                              |
-| `ls1`     | `tree --level=1`                         |
-| `ls2`     | `tree --level=2`                         |
-| `ls3`     | `tree --level=3`                         |
-
-- ### Functions
-  - `lt`. This is a `tree` with level accepted by the first argument
-
-  ```sh
-  lt() {
-    tree --level "${1:-1}" "${@:2}"
-  }
   ```
 
 ## Configuration
