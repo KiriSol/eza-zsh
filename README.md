@@ -35,39 +35,33 @@ git clone https://github.com/KiriSol/eza-zsh ${ZSH_CUSTOM:-$ZSH/custom}/plugins/
   )
   ```
 
-  - **EZA_IGNORE_GLOB** pattern for `--ignore-glob` option, which is used for alias `lT`. By default it is
-
-  ```sh
-  export EZA_IGNORE_GLOB=".git"
-  ```
-
 - ### Table of aliases
 
-| Alias     | Command                                                      |
-| --------- | ------------------------------------------------------------ |
-| `ls`      | `eza $EZA_DEFAULT_OPTS`                                      |
-| `tree`    | `ls --tree`                                                  |
-| `la`      | `ls --sort=Name --all`                                       |
-| `l`       | `ls --header --long`                                         |
-| `ll`      | `l --all`                                                    |
-| `li`      | `l --inode`                                                  |
-| `lla`     | `ls -lbhHigUmuSa`                                            |
-| `llx`     | `ls -lbhHigUmuSa@`                                           |
-| `lgit`    | `ls --all --git-ignore`                                      |
-| `lmod`    | `ll --sort=modified`                                         |
-| `lcreate` | `ll --sort=created`                                          |
-| `lsize`   | `ll --sort=size`                                             |
-| `ldirs`   | `ls --only-dirs`                                             |
-| `lfiles`  | `ls --only-files`                                            |
-| `lT`      | `ls --tree --no-user --all --ignore-glob='$EZA_IGNORE_GLOB'` |
-| `lS`      | `ls --oneline`                                               |
-| `lX`      | `ls --across`                                                |
-| `lR`      | `ls --recurse`                                               |
-| `labs`    | `ls --absolute=on`                                           |
-| `lpwd`    | `labs -d .`                                                  |
-| `ls1`     | `tree --level=1`                                             |
-| `ls2`     | `tree --level=2`                                             |
-| `ls3`     | `tree --level=3`                                             |
+| Alias     | Command                                  |
+| --------- | ---------------------------------------- |
+| `ls`      | `eza $EZA_DEFAULT_OPTS`                  |
+| `tree`    | `ls --tree`                              |
+| `la`      | `ls --sort=Name --all`                   |
+| `l`       | `ls --header --long`                     |
+| `ll`      | `l --all`                                |
+| `li`      | `l --inode`                              |
+| `lla`     | `ls -lbhHigUmuSa`                        |
+| `llx`     | `ls -lbhHigUmuSa@`                       |
+| `lgit`    | `ls --all --git-ignore`                  |
+| `lmod`    | `ll --sort=modified`                     |
+| `lcreate` | `ll --sort=created`                      |
+| `lsize`   | `ll --sort=size`                         |
+| `ldirs`   | `ls --only-dirs`                         |
+| `lfiles`  | `ls --only-files`                        |
+| `lT`      | `ls --tree --no-user --all --git-ignore` |
+| `lS`      | `ls --oneline`                           |
+| `lX`      | `ls --across`                            |
+| `lR`      | `ls --recurse`                           |
+| `labs`    | `ls --absolute=on`                       |
+| `lpwd`    | `labs -d .`                              |
+| `ls1`     | `tree --level=1`                         |
+| `ls2`     | `tree --level=2`                         |
+| `ls3`     | `tree --level=3`                         |
 
 - ### Functions
   - `lt`. This is a `tree` with level accepted by the first argument
@@ -80,4 +74,4 @@ git clone https://github.com/KiriSol/eza-zsh ${ZSH_CUSTOM:-$ZSH/custom}/plugins/
 
 ## Configuration
 
-- You can change `EZA_DEFAULT_OPTS` and `EZA_IGNORE_GLOB` before loading this plugin
+- You can change `EZA_DEFAULT_OPTS` and before loading this plugin

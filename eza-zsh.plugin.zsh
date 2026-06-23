@@ -15,10 +15,6 @@ if ! [[ -n "${EZA_DEFAULT_OPTS+x}" ]]; then
   )
 fi
 
-if ! [[ -n "${EZA_IGNORE_GLOB+x}" ]]; then
-  export EZA_IGNORE_GLOB=".git"
-fi
-
 # Standard aliases
 alias ls="eza $EZA_DEFAULT_OPTS"
 alias tree='ls --tree'
@@ -51,7 +47,7 @@ alias ls2='tree --level=2'
 alias ls3='tree --level=3'
 
 # Others
-alias lT="ls --tree --no-user --no-permissions --all --ignore-glob='$EZA_IGNORE_GLOB'"
+alias lT="ls --tree --no-user --no-permissions --all --git-ignore"
 alias lS='ls --oneline'
 alias lX='ls --across'
 alias lR='ls --recurse'
